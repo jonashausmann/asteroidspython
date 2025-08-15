@@ -1,4 +1,6 @@
 import pygame
+import player
+import circleshape
 from constants import *
 
 def main():
@@ -9,6 +11,9 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
+    player_x = SCREEN_WIDTH/2
+    player_y = SCREEN_HEIGHT/2
+    player_now = player.Player(player_x, player_y, PLAYER_RADIUS )
 
 
     i = 1
@@ -21,6 +26,7 @@ def main():
         dt = clock.tick()/1000
 
         screen.fill("black")
+        player_now.draw(screen)
         pygame.display.flip()
 
 if __name__ == "__main__":
