@@ -23,11 +23,12 @@ def main():
             if event.type == pygame.QUIT:
                 return
         clock.tick(60)
-        dt = clock.tick()/1000
 
         screen.fill("black")
+        player_now.update(dt)
         player_now.draw(screen)
         pygame.display.flip()
+        dt = clock.tick()/1000
 
 if __name__ == "__main__":
     main()
