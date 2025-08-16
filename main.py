@@ -1,4 +1,5 @@
 import pygame
+import bullet
 import asteroidfield
 import asteroid
 import player
@@ -24,10 +25,14 @@ def main():
     asteroidable = pygame.sprite.Group()
     asteroid.Asteroid.containers = (asteroidable, updatable, drawable)
 
-    asteroidfield.AsteroidField.containers = (updatable)
-
+    asteroidfield.AsteroidField.containers = updatable
     asteroidfield.AsteroidField()
+    
+    bulletable = pygame.sprite.Group()
+    bullet.Shot.containers = (bulletable, updatable, drawable)
 
+
+    
 
     i = 1
     while i != 0:
@@ -43,6 +48,10 @@ def main():
 #        player_now.draw(screen)
         for draw in drawable:
             draw.draw(screen)
+        for asteroid_object in asteroidable:
+            if asteroid_object.collision(player_now):
+                print("Game over!")
+                sys.exit("Game over!")
         pygame.display.flip()
         dt = clock.tick()/1000
 
