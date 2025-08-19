@@ -52,7 +52,7 @@ def main():
                 sys.exit("Game over!")
             for bullet_object in bulletable:
                 if bullet_object.collision(asteroid_object):
-                    asteroid_object.kill()
+                    asteroid_object.split()
                     bullet_object.kill()
         pygame.display.flip()
         dt = clock.tick()/1000
