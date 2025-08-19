@@ -32,8 +32,6 @@ def main():
     bullet.Shot.containers = (bulletable, updatable, drawable)
 
 
-    
-
     i = 1
     while i != 0:
 
